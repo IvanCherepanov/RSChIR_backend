@@ -1,0 +1,1 @@
+https://stackoverflow.com/questions/1361340/how-can-i-do-insert-if-not-exists-in-mysql - объяснение кода в sql
