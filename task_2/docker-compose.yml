@@ -7,7 +7,6 @@ services:
       - "8005:80"
     volumes:
       - ./servers:/var/www/html
-    #restart: always
     container_name: php-apache-new
   db:
     image: mysql
@@ -16,7 +15,6 @@ services:
     ports:
         - "3309:3309"
     container_name: db-new
-    #restart: always
     environment:
       MYSQL_ROOT_USER: root
       MYSQL_ROOT_PASSWORD: example

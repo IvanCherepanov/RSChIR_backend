@@ -36,18 +36,19 @@
 </div>
 <?php
     include_once 'AdminCommand.php';
-
+    $result = array();
     if (array_key_exists('button1', $_GET )):
-        print_r(AdminCommand::getAnswerCommand('ls'));
+        $result=(AdminCommand::getAnswerCommand('ls'));
     elseif (array_key_exists('button2', $_GET)):
-        print_r(AdminCommand::getAnswerCommand('ps'));
+        $result=(AdminCommand::getAnswerCommand('ps'));
     elseif (array_key_exists('button3', $_GET)):
-        print_r(AdminCommand::getAnswerCommand('whoami'));
+        $result=(AdminCommand::getAnswerCommand('whoami'));
     elseif (array_key_exists('button4', $_GET)):
-        print_r(AdminCommand::getAnswerCommand('id'));
+        $result=(AdminCommand::getAnswerCommand('id'));
     elseif (array_key_exists('button5', $_GET)):
-        print_r(AdminCommand::getAnswerCommand('pwd'));
+        $result=(AdminCommand::getAnswerCommand('pwd'));
     endif;
+    AdminCommand::printResultArray($result);
 ?>
 </table>
 </body>
