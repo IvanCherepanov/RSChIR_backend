@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  php-apache:
+    build: apache-php/
+    ports:
+      - "8005:8005"
+    volumes:
+      - ./apache-php/src:/var/www/html-d
+    container_name: php-apache-task3
+  nginx:
+    build: nginx/
+    ports:
+      - "8006:8006"
+    volumes:
+      - ./nginx/src:/usr/share/nginx/html-s
+      - ./nginx/default.conf:/etc/nginx/nginx.conf
+    container_name: nginx-task3
+  db:
+    image: mysql
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
+    ports:
+        - "3309:3309"
+    container_name: db-task3
+    environment:
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: appDB
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password

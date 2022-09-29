@@ -1,0 +1,6 @@
+<Files admin.php>
+SetEnvIf Cookie auth=.* PASS=1
+Order deny,allow
+Deny from all
+Allow from env=PASS
+</Files>

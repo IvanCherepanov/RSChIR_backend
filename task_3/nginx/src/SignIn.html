@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <input placeholder="name" type="text" id="input-id">
+    <input placeholder="password" type="password" id="password-id">
+    <button onclick="
+            const inputs = document.querySelectorAll('input')
+            console.log(inputs)
+            const name = document.getElementById('input-id').value;
+            const password = document.getElementById('password-id').value;
+            window.location.replace(`http://localhost:8005/signinTemp.php?name=${name}&password=${password}`)
+        ">Sign in</button>
+</div>
+</body>
+</html>
