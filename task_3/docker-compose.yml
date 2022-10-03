@@ -7,7 +7,7 @@ services:
       - "8005:8005"
     volumes:
       - ./apache-php/src:/var/www/html-d
-    container_name: php-apache-task3
+    container_name: php-apache
   nginx:
     build: nginx/
     ports:
@@ -15,14 +15,15 @@ services:
     volumes:
       - ./nginx/src:/usr/share/nginx/html-s
       - ./nginx/default.conf:/etc/nginx/nginx.conf
-    container_name: nginx-task3
+    container_name: nginx
   db:
     image: mysql
     volumes:
       - ./db:/docker-entrypoint-initdb.d
+      - ./logs/mysql:/var/log/mysql # to get the folder of mysql in my logs/mysql
     ports:
-        - "3309:3309"
-    container_name: db-task3
+        - "3309:3306"
+    container_name: mysql
     environment:
       MYSQL_ROOT_USER: root
       MYSQL_ROOT_PASSWORD: example

@@ -1,6 +1,6 @@
 <?php
     const
-    host = 'db-task3',
+    host = 'mysql',
     dbUser = 'user',
     password = 'password',
     db = 'appDB';

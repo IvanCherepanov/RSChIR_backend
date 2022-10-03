@@ -17,10 +17,12 @@
         echo "Connection failed: ".$mysqli->connect_error."\n";
         exit();
     }
+    //mysqli::prepare -- mysqli_prepare — Подготавливает SQL выражение к выполнению
     $statement = $mysqli->prepare(sprintf(
         'select %s from %s where name = ? and password = ?',
         'ID', 'users'
     ));
+    //Привязывает переменные к подготовленному оператору в качестве параметров
     $statement->bind_param('ss', $name, $password);
     $statement->execute();
     $result = $statement->get_result()->num_rows === 1;

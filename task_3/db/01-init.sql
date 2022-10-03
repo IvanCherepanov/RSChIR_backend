@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS users (
   ID INT(11) NOT NULL AUTO_INCREMENT,
   name VARCHAR(20) NOT NULL,
   surname VARCHAR(40) NOT NULL,
-  password VARCHAR(40) NOT NULL,
+  password VARCHAR(240) NOT NULL,
   PRIMARY KEY (ID)
 );
 
@@ -22,6 +22,12 @@ CREATE TABLE IF NOT EXISTS products (
 
 INSERT INTO users (name, surname, password)
 VALUES ('admin', 'adminovich','admin');
+
+INSERT INTO users (name, surname, password)
+VALUES ('admin2', 'adminovich','{SHA}d033e22ae348aeb5660fc2140aec35850c4da997');
+
+INSERT INTO users (name, surname, password)
+VALUES ('admin3', 'adminovich','{SHA}QV77lL0gK8qvC/dLp1ugXj3pPeg=');
 
 INSERT INTO users (name, surname, password)
 VALUES ('neadmin', 'neadminovich','neadmin');
