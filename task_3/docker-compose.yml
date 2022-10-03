@@ -20,7 +20,7 @@ services:
     image: mysql
     volumes:
       - ./db:/docker-entrypoint-initdb.d
-      - ./logs/mysql:/var/log/mysql # to get the folder of mysql in my logs/mysql
+      - ./logs/mysql:/var/log/mysql  # to get the folder of mysql in my logs/mysql
     ports:
         - "3309:3306"
     container_name: mysql
