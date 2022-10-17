@@ -35,4 +35,24 @@ class User
         $stmt->execute();
         return $stmt;
     }
+
+    function create(){
+
+        $stmt = $this->conn->prepare("
+			INSERT INTO ".$this->itemsTable."(name, surname, password)
+			VALUES(?,?,?,?)");
+
+        $this->name = htmlspecialchars(strip_tags($this->name));
+        $this->description = htmlspecialchars(strip_tags($this->description));
+        $this->price = htmlspecialchars(strip_tags($this->price));
+        $this->category_id = htmlspecialchars(strip_tags($this->category_id));
+
+        $stmt->bind_param("ssii", $this->name, $this->description, $this->price, $this->category_id);
+
+        if($stmt->execute()){
+            return true;
+        }
+
+        return false;
+    }
 }
