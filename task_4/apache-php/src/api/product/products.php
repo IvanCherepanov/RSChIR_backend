@@ -110,6 +110,7 @@ function updateProduct($db, $data)
 
     $result = $db->query("select * from products where ID = '$id';");
     if ($result->num_rows < 1) {
+        http_response_code(404);
         $res = [
             "status" => false,
             "message" => "user not found"
@@ -132,6 +133,7 @@ function deleteProduct($db, $id)
 {
     $result = $db->query("select * from products where ID = '$id';");
     if ($result->num_rows < 1) {
+        http_response_code(404);
         $res = [
             "status" => false,
             "message" => "Product not found"
