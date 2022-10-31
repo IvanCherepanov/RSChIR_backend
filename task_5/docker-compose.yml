@@ -31,6 +31,7 @@ services:
       MYSQL_USER: user
       MYSQL_PASSWORD: password
   redis:
+    container_name: redis
     image: redis:alpine3.16
     restart: always
     ports:

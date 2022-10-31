@@ -1,18 +1,33 @@
+<?php
+$themeStyleSheet = 'http://localhost:8006/main.css';
+if (!empty($_COOKIE['theme']) && $_COOKIE['theme'] == 'dark') {
+    $themeStyleSheet = 'http://localhost:8006/dark.css';
+}
+$favicon = "http://localhost:8006/img/hp.png";
+if (!empty($_COOKIE['fav']) && $_COOKIE['fav'] == 'witcher') {
+    $favicon = "http://localhost:8006/img/witch.png";
+}
+?>
 <!doctype html>
 <html lang="ru">
 <head>
     <meta charset="utf-8" />
     <title>About Сoffee house</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="<?php echo $favicon; ?>" type="image/x-icon" id="fav-link">
+    <link rel="stylesheet"
+          href="<?php echo $themeStyleSheet; ?>"
+          id="theme-link"
+          />
 </head>
 <body>
 <div>
-    <h1><b>Who We Are</b></h1>
-    <p>Prufrock Coffee is based in Central London.
-        It was founded by three coffee enthusiasts and has grown to be a team of talented coffee professionals,
-        with a wealth of experience and passion for what we do. </p>
-    <p class="" style="white-space:pre-wrap;">Ten years after opening its doors on Leather Lane, Prufrock Coffee remains a gathering place for locals and a destination for guests from around the world. Curious, we’re on a mission to continually evolve, constantly experimenting with new ingredients and techniques. Yet we always stay true to our philosophy: serve coffee and food that makes you happy, with a service that makes you smile.&nbsp;</p>
+    <h1><b>Кто мы такие</b></h1>
+    <p>Компания Prufrock Coffee находится в центре Лондона.
+        Она была основана тремя любителями кофе и превратилась в команду талантливых профессионалов в области кофе,
+        обладающих богатым опытом и страстью к тому, что мы делаем.</p>
+    <p class="" style="white-space:pre-wrap;">Спустя десять лет после открытия своих дверей на Кожаном переулке, Prufrock Coffee остается местом сбора местных жителей и местом назначения для гостей со всего мира. Любопытно, что наша миссия - постоянно развиваться, постоянно экспериментировать с новыми ингредиентами и техниками. Тем не менее, мы всегда остаемся верны нашей философии: подавайте кофе и еду, которые делают вас счастливыми, с обслуживанием, которое заставляет вас улыбаться.&nbsp;</p>
 </div>
-
+<script src="http://localhost:8006/cookies.js"></script>
 </body>
+
 </html>

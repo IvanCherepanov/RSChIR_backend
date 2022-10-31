@@ -1,28 +1,60 @@
+<?php
+$themeStyleSheet = 'http://localhost:8006/main.css';
+if (!empty($_COOKIE['theme']) && $_COOKIE['theme'] == 'dark') {
+    $themeStyleSheet = 'http://localhost:8006/dark.css';
+}
+
+$lang = "ru";
+if (!empty($_COOKIE['lang']) && $_COOKIE['lang'] == 'en') {
+    $lang = "en";
+}
+
+$favicon = "http://localhost:8006/img/hp.png";
+if (!empty($_COOKIE['fav']) && $_COOKIE['fav'] == 'witcher') {
+    $favicon = "http://localhost:8006/img/witch.png";
+}
+?>
 <!doctype html>
 <html lang="ru">
 <head>
     <meta charset="utf-8" />
     <title>Сoffee house</title>
-<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"-->
-<!--          rel="stylesheet"-->
-<!--          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"-->
-<!--          crossorigin="anonymous">-->
+    <link rel="icon" href="<?php echo $favicon; ?>" type="image/x-icon" id="fav-link">
+    <link rel="stylesheet"
+          href="<?php echo $themeStyleSheet; ?>"
+          id="theme-link"
+    />
+
 </head>
 <body>
 <h1>РСЧИР ЗАДАНИЕ №3</h1>
 <h1>Вариант (31-1)%10 + 1 = 1</h1>
-
+<div class="wrapper">
+    <div class="theme-button" id="theme-button">Change theme</div>
+    <div class="theme-button2" id="lang-button">Change lang</div>
+    <div class="theme-button2" id="fav-button">Change favicon</div>
+</div>
 <div>
     <h2>Welcome to Coffe House</h2>
     <p>You can:</p>
     <ul>
-        <a href="admin.php">Sign in</a><br>
-        <a href="/about.html">Learn about us</a><br>
+        <a href="admin.php" id="first">Sign in</a><br>
+        <script>
+            node = document.getElementById('first');
+            var results = document.cookie.match(/lang=(.+?)(;|$)/);
+            console.log(results[1])
+            if (results[1] === 'en'){
+                node.insertAdjacentHTML('afterend', '<br><a href="en/about.html">Learn about us</a>');
+            }
+            else{
+                node.insertAdjacentHTML('afterend', '<br><a href="about.html">О нас</a>');
+            }
+        </script>
         <a href="productList.php">List of products</a>
         <a></a><br>
         <a></a><br>
     </ul>
 </div>
-
+<script src="http://localhost:8006/cookies.js"></script>
 </body>
 </html>

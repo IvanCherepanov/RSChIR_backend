@@ -1,5 +1,5 @@
 <?php
-require_once 'utilsMySql.php';
+require_once '../utilsMySql.php';
 ?>
 <?php
 $themeStyleSheet = 'http://localhost:8006/main.css';
@@ -32,7 +32,7 @@ if (!empty($_COOKIE['fav']) && $_COOKIE['fav'] == 'witcher') {
 <!--    <div class="theme-button2" id="lang-button">Change lang</div>-->
 <!--</div>-->
 <table>
-    <tr><th>Цена</th><th>Описание</th></tr>
+    <tr><th>Price</th><th>Description</th></tr>
 <?php
     $id = $_GET[strtolower('id')];
     echo $id;

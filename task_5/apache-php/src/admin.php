@@ -1,9 +1,22 @@
 <?php
     require_once 'utilsMySql.php';
 ?>
+
+<?php
+$themeStyleSheet = 'http://localhost:8006/main.css';
+if (!empty($_COOKIE['theme']) && $_COOKIE['theme'] == 'dark') {
+    $themeStyleSheet = 'http://localhost:8006/dark.css';
+}
+$favicon = "http://localhost:8006/img/hp.png";
+if (!empty($_COOKIE['fav']) && $_COOKIE['fav'] == 'witcher') {
+    $favicon = "http://localhost:8006/img/witch.png";
+}
+?>
+
 <html lang="en">
 <head>
     <title>Hello world page</title>
+    <link rel="icon" href="<?php echo $favicon; ?>" type="image/x-icon" id="fav-link">
 </head>
 <style>
     /* внешние границы таблицы серого цвета толщиной 1px */

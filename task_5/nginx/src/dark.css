@@ -1,6 +1,6 @@
 body {
-    --text-color: #222;
-    --bkg-color: #fff;
+    --text-color: #eee;
+    --bkg-color: #121212;
 }
 
 * {
@@ -31,7 +31,14 @@ p, label {
     cursor: pointer;
     background: aqua;
 }
-
+tr{
+    color:var(--text-color);
+    background-color:var(--bkg-color);
+}
+td{
+    color:var(--text-color);
+    background-color:var(--bkg-color);
+}
 .theme-button2
 {
     right: 5px;
