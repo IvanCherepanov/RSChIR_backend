@@ -22,14 +22,15 @@ draw_plot_scatter();
 draw_geo_scatter();
 ?>
 <?php
-//require_once "watermark.php";
-//
-//$images = array("images/plot_pie.png", "images/plot_bar.png", "images/plot_scatter.png");
-//
-//foreach ($images as $image) {
-//    add_watermark($image);
-//}
-//?>
+require_once "water_mark.php";
+
+$images = array("images/plot_pie.png", "images/plot_bar.png", "images/line_plot.png", "images/geo_plot.png");
+echo count($images);
+foreach ($images as $image) {
+    echo "call\n";
+    create_water_mark($image);
+}
+?>
 <img src="images/plot_pie.png" alt="plot_1.png">
 <img src="images/plot_bar.png" alt="plot_2.png">
 <img src="images/line_plot.png" alt="plot_3.png">
