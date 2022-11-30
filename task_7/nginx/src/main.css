@@ -1,0 +1,43 @@
+body {
+    --text-color: #222;
+    --bkg-color: #fff;
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: var(--bkg-color);
+}
+
+h1,
+p, label {
+    color: var(--text-color);
+}
+
+.wrapper
+{
+    width: 100%;
+}
+
+.theme-button
+{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    display: inline-block;
+    padding: 10px 25px;
+    cursor: pointer;
+    background: aqua;
+}
+
+.theme-button2
+{
+    right: 5px;
+    top: 5px;
+    display: inline-block;
+    padding: 10px 25px;
+    cursor: pointer;
+    background: aqua;
+}
