@@ -14,7 +14,7 @@ class ProductController extends Controller
             $id = $myArray[1];
 
             #echo "fdsssssssssssss".$id."fdssssssss";
-            $products = $this->model->readOne($id);
+            $products = $this->model->getProduct($id);
             $vars = [
                 'products' => $products
             ];

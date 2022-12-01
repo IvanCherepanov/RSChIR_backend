@@ -25,7 +25,6 @@
 <div style="display: flex;flex-direction: column;">
     <table>
         <tr>
-            <th>Id</th>
             <th>Desc</th>
             <th>Price</th>
         </tr>
@@ -36,9 +35,8 @@
             echo "
         <tr>
             <td>
-                <a href='en/itemShow.php?id={$row['ID']}'></a>
+                <a href='http://localhost:8006/product?ID={$row['ID']}'>{$row['description']}</a>
             </td>
-            <td>{$row['description']}</td>
             <td>{$row['price']}</td>
         </tr>
         ";
@@ -49,9 +47,8 @@
             echo "
         <tr>
             <td>
-                <a href='/itemShow.php?id={$row['ID']}'>{$row['description']}</a>
+                <a href='http://localhost:8006/product?ID={$row['ID']}'>{$row['description']}</a>
             </td>
-            <td>{$row['description']}</td>
             <td>{$row['price']}</td>
         </tr>
         ";

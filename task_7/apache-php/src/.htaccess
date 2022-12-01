@@ -8,3 +8,12 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule !.(pdf|jpg|png|ico)$ index.php
 #RewriteRule ^(.*)$ index.php
 #!.(js|css|ico|gif|jpg|png)$
+
+SetEnvIf Request_URI ^.*/admin.* require_auth=true
+AuthName "Password Protected"
+AuthType Basic
+Order Deny,Allow
+Deny from all
+Satisfy any
+Require valid-user
+Allow from env=!require_auth

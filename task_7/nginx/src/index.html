@@ -38,7 +38,7 @@ if (!empty($_COOKIE['fav']) && $_COOKIE['fav'] == 'witcher') {
     <h2>Welcome to Coffe House</h2>
     <p>You can:</p>
     <ul>
-        <a href="admin.php" id="first">Sign in</a><br>
+        <a href="admin" id="first">Sign in</a><br>
         <script>
             node = document.getElementById('first');
             var results = document.cookie.match(/lang=(.+?)(;|$)/);
@@ -50,7 +50,7 @@ if (!empty($_COOKIE['fav']) && $_COOKIE['fav'] == 'witcher') {
                 node.insertAdjacentHTML('afterend', '<br><a href="about.html">О нас</a>');
             }
         </script>
-        <a href="productList.php">List of products</a>
+        <a href="product">List of products</a>
         <a></a><br>
         <a></a><br>
     </ul>
