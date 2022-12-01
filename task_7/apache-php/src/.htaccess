@@ -1,5 +1,10 @@
-<FilesMatch "\.php$">
-    AuthName "Login required"
-    AuthType Basic
-    Require valid-user
-</FilesMatch>
+AddDefaultCharset utf-8
+
+RewriteEngine on
+# если не файл и не директория (нужен url), то редирект
+#RewriteCond %{REQUEST_FILENAME} -s
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule !.(pdf|jpg|png|ico)$ index.php
+#RewriteRule ^(.*)$ index.php
+#!.(js|css|ico|gif|jpg|png)$

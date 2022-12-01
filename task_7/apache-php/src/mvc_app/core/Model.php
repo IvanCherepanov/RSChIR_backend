@@ -3,6 +3,7 @@
 namespace mvc_app\core;
 
 use mvc_app\lib\Db;
+use mysqli;
 
 abstract class Model {
 

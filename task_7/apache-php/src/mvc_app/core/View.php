@@ -46,4 +46,10 @@ class View {
         exit(json_encode(['url' => $url]));
     }
 
+    public static function json($json, $code){
+        header("Content-Type: application/json; charset=UTF-8");
+        header("Access-Control-Allow-Origin: *");
+        http_response_code($code);
+        require 'mvc_app/views/json.php';
+    }
 }
