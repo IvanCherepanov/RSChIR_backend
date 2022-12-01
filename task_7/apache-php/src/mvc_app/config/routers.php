@@ -22,4 +22,13 @@ return [
         'controller' => 'statistics',
         'action' => 'show'
     ],
+    'pdf' => [
+        'controller' => 'pdf',
+        'action' => 'show'
+    ],
+
+    'pdf/upload' => [
+        'controller' => 'pdf',
+        'action' => 'upload'
+    ],
 ];
