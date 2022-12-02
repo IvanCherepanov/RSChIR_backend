@@ -31,4 +31,8 @@ return [
         'controller' => 'pdf',
         'action' => 'upload'
     ],
+    'statistics' => [
+        'controller' => 'statistics',
+        'action' => 'show'
+    ],
 ];
