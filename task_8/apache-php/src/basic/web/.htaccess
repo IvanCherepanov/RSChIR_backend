@@ -2,3 +2,12 @@ RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule . index.php [L]
+
+SetEnvIf Request_URI ^.*/basic/web/user.* require_auth=true
+AuthName "Password Protected"
+AuthType Basic
+Order Deny,Allow
+Deny from all
+Satisfy any
+Require valid-user
+Allow from env=!require_auth
