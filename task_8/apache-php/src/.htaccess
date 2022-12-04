@@ -1,0 +1,22 @@
+AddDefaultCharset utf-8
+
+RewriteEngine on
+# если не файл и не директория (нужен url), то редирект
+#RewriteCond %{REQUEST_FILENAME} -s
+# if $showScriptName is false in UrlManager, do not allow accessing URLs with script name
+RewriteRule ^index.php/ - [L,R=404]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . index.php
+#RewriteRule !.(pdf|jpg|png|ico)$ index.php
+#RewriteRule ^(.*)$ index.php
+#!.(js|css|ico|gif|jpg|png)$
+
+SetEnvIf Request_URI ^.*/admin.* require_auth=true
+AuthName "Password Protected"
+AuthType Basic
+Order Deny,Allow
+Deny from all
+Satisfy any
+Require valid-user
+Allow from env=!require_auth
