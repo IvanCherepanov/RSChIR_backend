@@ -16,14 +16,15 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <code><?= __FILE__ ?></code>
 </div>
-    <div style=" display: flex;flex-direction: column;">
+<!--    <div style=" display: flex;flex-direction: column;">-->
+
 <?php
 print_r($model[0]);
 foreach ($model[0] as $image) {
     echo Html::img(Url::to('http://localhost:8006/'.$image), ['class' => 'pull-left img-responsive']);
 }
 ?>
-
+<!--    </div>-->
         <table class="table">
             <tr>
                 <th>Name</th>

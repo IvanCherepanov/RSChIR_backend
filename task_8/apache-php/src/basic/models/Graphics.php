@@ -5,6 +5,9 @@ namespace app\models;
 //use Amenadiel\JpGraph\Plot\ScatterPlot;
 //use Amenadiel\JpGraph\Plot\ScatterPlot;
 use Amenadiel\JpGraph\Graph\Graph;
+use Amenadiel\JpGraph\Graph\PieGraph;
+use Amenadiel\JpGraph\Plot\BarPlot;
+use Amenadiel\JpGraph\Plot\PiePlot;
 use Amenadiel\JpGraph\Plot\ScatterPlot;
 use yii\base\Model;
 use Faker;
@@ -188,7 +191,7 @@ class Graphics extends Model
         // Create the graph. These two calls are always required
         $__width = 1400;
         $__height = 300;
-        $graph = new Graph\Graph($__width, $__height, 'auto');
+        $graph = new Graph($__width, $__height, 'auto');
         $graph->SetScale("textlin");
 
         // Create the linear plot
@@ -199,7 +202,7 @@ class Graphics extends Model
         $graph->Add($lineplot);
 
         // Display the graph
-        $graph->Stroke('mvc_app/models/images/line_plot.png');
+        $graph->Stroke('/var/www/html-d/basic/views/images/line_plot.png');
 
     }
 
@@ -285,8 +288,8 @@ class Graphics extends Model
 
     function draw_plot_pie()
     {
-        echo "hello";
-        $graph = new Graph\PieGraph(400, 300);
+        //echo "hello";
+        $graph = new PieGraph(400, 300);
         $graph->title->Set("Century choice");
         $graph->title->SetFont(FF_FONT1, FS_BOLD);
         $graph->SetBox(true);
@@ -302,14 +305,14 @@ class Graphics extends Model
         $values = array_values($labels1);
         //echo $values;
 
-        $p1 = new Plot\PiePlot($values);
+        $p1 = new PiePlot($values);
         $p1->ShowBorder();
         $p1->SetColor('black');
         $p1->SetLabels($labels);
 
         $graph->Add($p1);
         //echo "what\n";
-        $graph->Stroke("mvc_app/models/images/plot_pie.png");
+        $graph->Stroke("/var/www/html-d/basic/views/images/plot_pie.png");
     }
 
     function draw_plot_bar()
@@ -318,7 +321,7 @@ class Graphics extends Model
 // new Graph\Graph with a drop shadow
         $__width = 400;
         $__height = 300;
-        $graph = new  Graph($__width, $__height, 'auto');
+        $graph = new Graph($__width, $__height, 'auto');
         #echo "12";
         $graph->SetShadow();
         $graph->title->Set("Blood Type");
@@ -342,14 +345,14 @@ class Graphics extends Model
         $graph->xaxis->SetTickLabels($labels);
 
 // Set title and subtitle
-        $graph->title->Set($_GET['property']);
+        //$graph->title->Set($_GET['property']);
 
 // Use built in font
         $graph->title->SetFont(FF_FONT1, FS_BOLD);
 
 // Create the bar plot
-        $b1 = new Plot\BarPlot($databary);
-        $b1->SetLegend($_GET['property']);
+        $b1 = new BarPlot($databary);
+        //$b1->SetLegend($_GET['property']);
 
 //$b1->SetAbsWidth(6);
 //$b1->SetShadow();
@@ -359,22 +362,24 @@ class Graphics extends Model
 
 // Finally output the  image
 // imagepng($graph->img->img);
-        $graph->Stroke('basic/views/images/plot_bar.png');
+        $graph->Stroke('/var/www/html-d/basic/views/images/plot_bar.png');
     }
 
     function draw(){
         #echo "draw_geo_scatter\n";
         $this->draw_geo_scatter();
         //echo "draw_plot_bar";
-        #$this->draw_plot_bar();
-        #$this->draw_plot_pie();
-        #$this->draw_plot_scatter();
+        $this->draw_plot_bar();
+        $this->draw_plot_pie();
+        $this->draw_plot_scatter();
         #echo "do not fall";
         $images = array(
             //"mvc_app/models/images/geo_plot.png",
             "basic/views/images/geo_plot.png",
-            //"mvc_app/models/images/plot_pie.png",
-            //"mvc_app/models/images/line_plot.png"
+            "basic/views/images/plot_pie.png",
+            "basic/views/images/plot_bar.png",
+            "basic/views/images/line_plot.png"
+
         );
         #echo count($images);
         foreach ($images as $image) {
