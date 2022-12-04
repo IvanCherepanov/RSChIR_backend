@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Graphics;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -163,5 +164,12 @@ class SiteController extends Controller
         }
 
         return $this->render('upload', ['model' => $model]);
+    }
+
+    public function actionGraph()
+    {
+        $model = new Graphics();
+        $temp = $model->draw();
+        return $this->render('graph', ['model' => $temp]);
     }
 }

@@ -56,6 +56,7 @@ $config = [
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'user'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'car'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'country'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'graphics'],
             ],
         ],
 //        'cache' => [
