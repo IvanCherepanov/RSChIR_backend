@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <!--    <div style=" display: flex;flex-direction: column;">-->
 
 <?php
-print_r($model[0]);
+//print_r($model[0]);
 foreach ($model[0] as $image) {
     echo Html::img(Url::to('http://localhost:8006/'.$image), ['class' => 'pull-left img-responsive']);
 }
