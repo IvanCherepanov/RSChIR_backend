@@ -58,6 +58,22 @@ $config = [
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'country'],
             ],
         ],
+//        'cache' => [
+//            'class' => 'yii\redis\Cache',
+//            'redis' => [
+//                'hostname' => 'localhost',
+//                'port' => 6379,
+//                'database' => 0,
+//            ],
+//        ],
+//        'session' => [
+//            'class' => 'yii\redis\Session',
+//            'redis' => [
+//                'hostname' => 'localhost',
+//                'port' => 6379,
+//                'database' => 0,
+//            ]
+//        ],
 
     ],
     'params' => $params,

@@ -10,6 +10,8 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\EntryForm;
+use app\models\UploadForm;
+use yii\web\UploadedFile;
 
 class SiteController extends Controller
 {
@@ -146,5 +148,20 @@ class SiteController extends Controller
             // either the page is initially displayed or there is some validation error
             return $this->render('entry', ['model' => $model]);
         }
+    }
+
+    public function actionUpload()
+    {
+        $model = new UploadForm();
+
+        if (Yii::$app->request->isPost) {
+            $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
+            if ($model->upload()) {
+                // file is uploaded successfully
+                return;
+            }
+        }
+
+        return $this->render('upload', ['model' => $model]);
     }
 }
