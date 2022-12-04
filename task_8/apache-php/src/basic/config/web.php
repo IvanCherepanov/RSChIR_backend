@@ -50,7 +50,12 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'productapi'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'product'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'userapi'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'user'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'car'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'country'],
             ],
         ],
 
@@ -74,7 +79,7 @@ if (YII_ENV_DEV) {
         //'allowedIPs' => ['127.0.0.1', '::1'],
         'allowedIPs' => ['127.0.0.1', '::1', '192.168.0.*', '192.168.178.20',
             'localhost:8006','localhost:8005','127.0.0.*',
-            '172.18.0.2'] // adjust this to your needs
+            '172.18.0.4'] // adjust this to your needs
     ];
 }
 
