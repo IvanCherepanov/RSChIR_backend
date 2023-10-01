@@ -1,13 +1,38 @@
 version: '3'
 
 services:
-  php-apache:
+  php-apache1:
     build: apache-php/
     ports:
       - "8005:8005"
     volumes:
       - ./apache-php/src:/var/www/html-d
-    container_name: php-apache
+    container_name: php-apache1
+
+  php-apache2:
+    build: apache-php/
+    container_name: php-apache2
+    ports:
+      - "8007:8005"
+    volumes:
+      - ./apache-php/src:/var/www/html-d
+
+  php-apache3:
+    build: apache-php/
+    container_name: php-apache3
+    ports:
+      - "8008:8005"
+    volumes:
+      - ./apache-php/src:/var/www/html-d
+
+  php-apache4:
+    build: apache-php/
+    container_name: php-apache4
+    ports:
+      - "8009:8005"
+    volumes:
+      - ./apache-php/src:/var/www/html-d
+
   nginx:
     build: nginx/
     ports:
